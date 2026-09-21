@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Hardware Devices Quiz</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f3f6fb;
+        color: #1f2937;
+        line-height: 1.5;
+    }
+    .container {
+        max-width: 1150px;
+        margin: 0 auto;
+        padding: 25px;
+    }
+    header {
+        background: linear-gradient(135deg, #173f73, #2563a6);
+        color: white;
+        padding: 30px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+        box-shadow: 0 5px 16px rgba(0,0,0,.12);
+    }
+    header h1 { margin: 0 0 6px; }
+    header p { margin: 0; }
+    section {
+        background: white;
+        border-radius: 14px;
+        padding: 25px;
+        margin-bottom: 22px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.08);
+    }
+    h2 {
+        margin-top: 0;
+        color: #173f73;
+        border-bottom: 2px solid #dbe7f5;
+        padding-bottom: 10px;
+    }
+    .instructions {
+        background: #eef6ff;
+        border-left: 5px solid #2563a6;
+        padding: 12px 15px;
+        border-radius: 6px;
+        margin-bottom: 18px;
+    }
+    .question {
+        margin: 20px 0;
+        padding: 16px;
+        background: #f8fafc;
+        border-radius: 9px;
+        border: 1px solid #e2e8f0;
+    }
+    .question label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 9px;
+    }
+    input[type="text"], select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #b8c4d3;
+        border-radius: 6px;
+        font-size: 15px;
+        background: white;
+    }
+    button {
+        background: #173f73;
+        color: white;
+        border: none;
+        padding: 11px 20px;
+        border-radius: 7px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    button:hover { background: #0f315a; }
+    .feedback {
+        display: inline-block;
+        min-width: 30px;
+        font-size: 23px;
+        font-weight: bold;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+    .correct { color: #16803c; }
+    .wrong { color: #c62828; }
+    .result {
+        margin-top: 14px;
+        padding: 10px;
+        border-radius: 7px;
+        font-weight: bold;
+        display: none;
+    }
+    .hardware-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+        gap: 16px;
+    }
+    .device-card {
+        border: 1px solid #d8e0ea;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fbfdff;
+    }
+    .device-image {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eef4fa;
+        padding: 10px;
+    }
+    .device-image svg {
+        width: 100%;
+        height: 130px;
+        max-width: 220px;
+    }
+    .device-info { padding: 13px; }
+    .device-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: #173f73;
+        margin-bottom: 10px;
+    }
+    .field { margin-bottom: 10px; }
+    .field label {
+        display: block;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+    .use-answer {
+        font-size: 13px;
+        color: #475569;
+        margin-top: 5px;
+    }
+    .scenario {
+        display: grid;
+        grid-template-columns: 1fr 260px 35px;
+        gap: 12px;
+        align-items: center;
+        padding: 15px;
+        margin: 12px 0;
+        border: 1px solid #d8e0ea;
+        border-radius: 9px;
+        background: #f8fafc;
+    }
+    .scenario strong { color: #173f73; }
+    footer {
+        text-align: center;
+        color: #64748b;
+        padding: 5px 0 25px;
+        font-size: 13px;
+    }
+    @media (max-width: 700px) {
+        .scenario { grid-template-columns: 1fr; }
+        .feedback { margin-left: 0; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <h1>Computer Hardware Devices Quiz</h1>
+    <p>Test your knowledge of input, output, storage and processing devices.</p>
+</header>
+
+<section id="sectionA">
+    <h2>Section A – What Do You Know?</h2>
+    <div class="instructions">
+        <strong>Instructions:</strong> Type your answer into the entry box for each question. 
+        When you have answered all four questions, click <strong>Verify Section A</strong>.
+        A ✓ will appear for a correct answer and an ✗ for an incorrect answer.
+    </div>
+
+    <div class="question">
+        <label for="a1">1. What is an <strong>input device</strong>?</label>
+        <input type="text" id="a1" placeholder="Type your answer here">
+        <span class="feedback" id="a1fb"></span>
+    </div>
+
+    <div class="question">
+        <label for="a2">2. What is an <strong>output device</strong>?</label>
+        <input type="text" id="a2" placeholder="Type your answer here">
+        <span class="feedback" id="a2fb"></span>
+    </div>
+
+    <div class="question">
+        <label for="a3">3. What is a <strong>storage device</strong>?</label>
+        <input type="text" id="a3" placeholder="Type your answer here">
+        <span class="feedback" id="a3fb"></span>
+    </div>
+
+    <div class="question">
+        <label for="a4">4. What is a <strong>processing device</strong>?</label>
+        <input type="text" id="a4" placeholder="Type your answer here">
+        <span class="feedback" id="a4fb"></span>
+    </div>
+
+    <button onclick="verifySectionA()">Verify Section A</button>
+    <div class="result" id="resultA"></div>
+</section>
+
+<section id="sectionB">
+    <h2>Section B – Identify the Hardware</h2>
+    <div class="instructions">
+        <strong>Instructions:</strong> For each hardware device, select the correct option under
+        <strong>Type of Hardware</strong> and the correct option under <strong>Uses</strong>.
+        Then click <strong>Verify Section B</strong>.
+    </div>
+
+    <div class="hardware-grid" id="hardwareGrid"></div>
+
+    <button onclick="verifySectionB()">Verify Section B</button>
+    <div class="result" id="resultB"></div>
+</section>
+
+<section id="sectionC">
+    <h2>Section C – Choose the Hardware for the Task</h2>
+    <div class="instructions">
+        <strong>Instructions:</strong> Read each scenario. Choose the hardware device that could
+        be used for the task from the <strong>Use a:</strong> dropdown box.
+    </div>
+
+    <div class="scenario">
+        <div><strong>1.</strong> You want to type an assignment using a computer.</div>
+        <select class="scenario-select" data-answer="Keyboard">
+            <option value="">Use a:</option>
+            <option>Keyboard</option>
+            <option>Monitor</option>
+            <option>Printer</option>
+            <option>USB Flash Drive</option>
+            <option>Scanner</option>
+        </select>
+        <span class="feedback"></span>
+    </div>
+
+    <div class="scenario">
+        <div><strong>2.</strong> You want to view your assignment on the computer screen.</div>
+        <select class="scenario-select" data-answer="Monitor">
+            <option value="">Use a:</option>
+            <option>Keyboard</option>
+            <option>Monitor</option>
+            <option>Printer</option>
+            <option>USB Flash Drive</option>
+            <option>Scanner</option>
+        </select>
+        <span class="feedback"></span>
+    </div>
+
+    <div class="scenario">
+        <div><strong>3.</strong> You want to save your assignment so that you can use it later.</div>
+        <select class="scenario-select" data-answer="USB Flash Drive">
+            <option value="">Use a:</option>
+            <option>Keyboard</option>
+            <option>Monitor</option>
+            <option>Printer</option>
+            <option>USB Flash Drive</option>
+            <option>Scanner</option>
+        </select>
+        <span class="feedback"></span>
+    </div>
+
+    <div class="scenario">
+        <div><strong>4.</strong> You want to print a paper copy of your assignment.</div>
+        <select class="scenario-select" data-answer="Printer">
+            <option value="">Use a:</option>
+            <option>Keyboard</option>
+            <option>Monitor</option>
+            <option>Printer</option>
+            <option>USB Flash Drive</option>
+            <option>Scanner</option>
+        </select>
+        <span class="feedback"></span>
+    </div>
+
+    <div class="scenario">
+        <div><strong>5.</strong> You want to make a digital copy of a paper document and put it on the computer.</div>
+        <select class="scenario-select" data-answer="Scanner">
+            <option value="">Use a:</option>
+            <option>Keyboard</option>
+            <option>Monitor</option>
+            <option>Printer</option>
+            <option>USB Flash Drive</option>
+            <option>Scanner</option>
+        </select>
+        <span class="feedback"></span>
+    </div>
+
+    <button onclick="verifySectionC()">Verify Section C</button>
+    <div class="result" id="resultC"></div>
+</section>
+
+<footer>Computer Hardware Devices Quiz</footer>
+</div>
+
+<script>
+const devices = [
+    {
+        name:"Keyboard", type:"Input Device",
+        use:"Enter text, numbers and commands into a computer.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="15" y="35" width="190" height="65" rx="7" fill="#d7dde5" stroke="#536273" stroke-width="3"/><g fill="#fff" stroke="#8895a5" stroke-width="1">${Array.from({length:5},(_,r)=>Array.from({length:10},(_,c)=>`<rect x="${24+c*18}" y="${44+r*10}" width="14" height="7" rx="1"/>`).join("")).join("")}</g></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Enter text, numbers and commands","Display pictures and text","Store files for later use","Process instructions and data"],
+        answerUse:"Enter text, numbers and commands"
+    },
+    {
+        name:"Mouse", type:"Input Device",
+        use:"Move the pointer, select items and click buttons.",
+        svg:`<svg viewBox="0 0 220 130"><path d="M110 15 C80 15 65 40 65 68v25c0 17 20 25 45 25s45-8 45-25V68c0-28-15-53-45-53z" fill="#d7dde5" stroke="#536273" stroke-width="3"/><line x1="110" y1="18" x2="110" y2="62" stroke="#536273" stroke-width="3"/><rect x="106" y="32" width="8" height="18" rx="4" fill="#536273"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Move the pointer and select items","Show sound","Store files","Process data"],
+        answerUse:"Move the pointer and select items"
+    },
+    {
+        name:"Scanner", type:"Input Device",
+        use:"Convert paper documents or pictures into digital form.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="35" y="30" width="150" height="70" rx="7" fill="#d7dde5" stroke="#536273" stroke-width="3"/><rect x="55" y="42" width="110" height="25" fill="white" stroke="#8895a5"/><line x1="55" y1="73" x2="165" y2="73" stroke="#536273" stroke-width="3"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Convert paper documents to digital form","Print documents","Store documents","Process images"],
+        answerUse:"Convert paper documents to digital form"
+    },
+    {
+        name:"Microphone", type:"Input Device",
+        use:"Capture sound and voice and send it to the computer.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="92" y="15" width="36" height="65" rx="18" fill="#697788"/><path d="M75 57v13c0 20 16 32 35 32s35-12 35-32V57" fill="none" stroke="#536273" stroke-width="7"/><line x1="110" y1="102" x2="110" y2="116" stroke="#536273" stroke-width="6"/><line x1="88" y1="117" x2="132" y2="117" stroke="#536273" stroke-width="6"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Capture sound and voice","Play sound","Store audio files","Process sound"],
+        answerUse:"Capture sound and voice"
+    },
+    {
+        name:"Monitor", type:"Output Device",
+        use:"Display text, pictures, video and other information.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="28" y="15" width="164" height="85" rx="5" fill="#38495a" stroke="#1f2937" stroke-width="3"/><rect x="40" y="27" width="140" height="61" fill="#d9ecff"/><rect x="95" y="100" width="30" height="12" fill="#536273"/><rect x="78" y="112" width="64" height="7" rx="3" fill="#536273"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Display text and pictures","Enter text","Store information","Process commands"],
+        answerUse:"Display text and pictures"
+    },
+    {
+        name:"Printer", type:"Output Device",
+        use:"Produce a paper copy of a document or image.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="45" y="48" width="130" height="52" rx="6" fill="#697788" stroke="#3f4c5a" stroke-width="3"/><rect x="65" y="20" width="90" height="48" fill="white" stroke="#536273" stroke-width="3"/><rect x="67" y="85" width="86" height="25" fill="white" stroke="#536273" stroke-width="2"/><circle cx="155" cy="60" r="4" fill="#fff"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Produce a paper copy","Enter text","Store documents","Process print jobs"],
+        answerUse:"Produce a paper copy"
+    },
+    {
+        name:"Speakers", type:"Output Device",
+        use:"Play sound, music, speech and other audio.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="45" y="15" width="48" height="100" rx="5" fill="#4f5f70"/><rect x="127" y="15" width="48" height="100" rx="5" fill="#4f5f70"/><circle cx="69" cy="50" r="15" fill="#cbd5e1"/><circle cx="151" cy="50" r="15" fill="#cbd5e1"/><circle cx="69" cy="88" r="9" fill="#cbd5e1"/><circle cx="151" cy="88" r="9" fill="#cbd5e1"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Play sound and music","Record sound","Store music","Process audio"],
+        answerUse:"Play sound and music"
+    },
+    {
+        name:"Projector", type:"Output Device",
+        use:"Display computer images or video on a large screen or wall.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="45" y="40" width="105" height="55" rx="8" fill="#d7dde5" stroke="#536273" stroke-width="3"/><circle cx="70" cy="67" r="15" fill="#536273"/><path d="M150 55 L195 40 L195 92 L150 78Z" fill="#b9c5d3" stroke="#536273" stroke-width="3"/><line x1="90" y1="95" x2="80" y2="113" stroke="#536273" stroke-width="5"/><line x1="120" y1="95" x2="130" y2="113" stroke="#536273" stroke-width="5"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Display images on a large screen","Enter information","Store presentations","Process video"],
+        answerUse:"Display images on a large screen"
+    },
+    {
+        name:"USB Flash Drive", type:"Storage Device",
+        use:"Store and transfer files between computers.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="65" y="38" width="90" height="55" rx="7" fill="#4f5f70"/><rect x="155" y="50" width="28" height="31" fill="#cbd5e1" stroke="#536273" stroke-width="2"/><rect x="78" y="51" width="38" height="6" fill="#aebaca"/><circle cx="132" cy="65" r="5" fill="#8bd49b"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Store and transfer files","Display files","Enter data","Process files"],
+        answerUse:"Store and transfer files"
+    },
+    {
+        name:"External Hard Drive", type:"Storage Device",
+        use:"Store large amounts of data and make backup copies.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="55" y="20" width="110" height="90" rx="8" fill="#4f5f70" stroke="#263442" stroke-width="3"/><circle cx="110" cy="58" r="23" fill="#dbe2ea"/><circle cx="110" cy="58" r="7" fill="#697788"/><rect x="88" y="91" width="44" height="5" rx="2" fill="#aebaca"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Store large amounts of data","Display data","Enter data","Process data"],
+        answerUse:"Store large amounts of data"
+    },
+    {
+        name:"SSD", type:"Storage Device",
+        use:"Store data and files using flash memory.",
+        svg:`<svg viewBox="0 0 220 130"><rect x="48" y="28" width="124" height="74" rx="5" fill="#202b36" stroke="#536273" stroke-width="3"/><rect x="65" y="43" width="90" height="38" fill="#354555"/><text x="110" y="67" text-anchor="middle" font-size="17" fill="white" font-family="Arial">SSD</text><circle cx="158" cy="91" r="4" fill="#8bd49b"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Store data and files","Display files","Enter data","Process instructions"],
+        answerUse:"Store data and files"
+    },
+    {
+        name:"Memory Card", type:"Storage Device",
+        use:"Store photos, videos and other digital files.",
+        svg:`<svg viewBox="0 0 220 130"><path d="M78 18h55l22 22v72H78z" fill="#263442" stroke="#536273" stroke-width="3"/><path d="M133 18v22h22" fill="#697788"/><rect x="92" y="50" width="8" height="12" fill="#dbe2ea"/><rect x="106" y="50" width="8" height="12" fill="#dbe2ea"/><rect x="120" y="50" width="8" height="12" fill="#dbe2ea"/><rect x="92" y="68" width="8" height="12" fill="#dbe2ea"/><rect x="106" y="68" width="8" height="12" fill="#dbe2ea"/></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Store photos and digital files","Display photos","Enter photos","Process photos"],
+        answerUse:"Store photos and digital files"
+    },
+    {
+        name:"Barcode Reader", type:"Input Device",
+        use:"Read barcodes and send the information to a computer.",
+        svg:`<svg viewBox="0 0 220 130"><path d="M72 18h38l25 70-20 25-18-8 7-35z" fill="#d7dde5" stroke="#536273" stroke-width="3"/><rect x="79" y="27" width="27" height="16" fill="#263442"/><line x1="83" y1="34" x2="102" y2="34" stroke="#fff" stroke-width="2"/><path d="M126 62 L183 62 L183 88 L126 88Z" fill="white" stroke="#536273" stroke-width="3"/><g stroke="#263442" stroke-width="2"><line x1="135" y1="67" x2="135" y2="83"/><line x1="140" y1="67" x2="140" y2="83"/><line x1="147" y1="67" x2="147" y2="83"/><line x1="153" y1="67" x2="153" y2="83"/><line x1="161" y1="67" x2="161" y2="83"/><line x1="169" y1="67" x2="169" y2="83"/></g></svg>`,
+        typeOptions:["Input Device","Output Device","Storage Device","Processing Device"],
+        useOptions:["Read barcodes and send information","Print barcodes","Store barcode data","Process barcode data"],
+        answerUse:"Read barcodes and send information"
+    }
+];
+
+const grid = document.getElementById("hardwareGrid");
+
+devices.forEach((d, i) => {
+    const card = document.createElement("div");
+    card.className = "device-card";
+    card.innerHTML = `
+        <div class="device-image">${d.svg}</div>
+        <div class="device-info">
+            <div class="device-name">${d.name}</div>
+            <div class="field">
+                <label>Type of Hardware</label>
+                <select class="type-select" data-answer="${d.type}">
+                    <option value="">Select type</option>
+                    ${d.typeOptions.map(x => `<option>${x}</option>`).join("")}
+                </select>
+            </div>
+            <div class="field">
+                <label>Uses</label>
+                <select class="use-select" data-answer="${d.answerUse}">
+                    <option value="">Select use</option>
+                    ${d.useOptions.map(x => `<option>${x}</option>`).join("")}
+                </select>
+            </div>
+            <span class="feedback device-feedback"></span>
+            <div class="use-answer">Use: ${d.use}</div>
+        </div>
+    `;
+    grid.appendChild(card);
+});
+
+function setFeedback(element, correct) {
+    element.textContent = correct ? "✓" : "✗";
+    element.className = "feedback " + (correct ? "correct" : "wrong");
+}
+
+function verifySectionA() {
+    const answers = {
+        a1: ["input device", "a device used to enter data", "device used to enter data", "hardware used to enter data"],
+        a2: ["output device", "a device that displays information", "device that displays information", "device used to display information", "hardware used to display information"],
+        a3: ["storage device", "a device used to store data", "device used to store data", "hardware used to store data", "a device that stores data"],
+        a4: ["processing device", "a device that processes data", "device that processes data", "hardware that processes data", "a device used to process data"]
+    };
+    let score = 0;
+    Object.keys(answers).forEach(id => {
+        const value = document.getElementById(id).value.trim().toLowerCase().replace(/[.!?]/g, "");
+        const correct = answers[id].some(ans => value === ans || value.includes(ans));
+        setFeedback(document.getElementById(id + "fb"), correct);
+        if (correct) score++;
+    });
+    const result = document.getElementById("resultA");
+    result.style.display = "block";
+    result.style.background = score === 4 ? "#e8f7ed" : "#fff4e5";
+    result.style.color = score === 4 ? "#176b35" : "#8a5300";
+    result.textContent = `Section A: ${score} out of 4 correct.`;
+}
+
+function verifySectionB() {
+    const cards = document.querySelectorAll(".device-card");
+    let score = 0;
+    cards.forEach(card => {
+        const type = card.querySelector(".type-select");
+        const use = card.querySelector(".use-select");
+        const feedback = card.querySelector(".device-feedback");
+        const correct = type.value === type.dataset.answer && use.value === use.dataset.answer;
+        setFeedback(feedback, correct);
+        if (correct) score++;
+    });
+    const result = document.getElementById("resultB");
+    result.style.display = "block";
+    result.style.background = score === devices.length ? "#e8f7ed" : "#fff4e5";
+    result.style.color = score === devices.length ? "#176b35" : "#8a5300";
+    result.textContent = `Section B: ${score} out of ${devices.length} devices completely correct.`;
+}
+
+function verifySectionC() {
+    const selects = document.querySelectorAll(".scenario-select");
+    let score = 0;
+    selects.forEach(select => {
+        const correct = select.value === select.dataset.answer;
+        setFeedback(select.parentElement.querySelector(".feedback"), correct);
+        if (correct) score++;
+    });
+    const result = document.getElementById("resultC");
+    result.style.display = "block";
+    result.style.background = score === selects.length ? "#e8f7ed" : "#fff4e5";
+    result.style.color = score === selects.length ? "#176b35" : "#8a5300";
+    result.textContent = `Section C: ${score} out of ${selects.length} correct.`;
+}
+</script>
+</body>
+</html>
